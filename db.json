@@ -1,0 +1,84 @@
+{
+  "polls": [
+    {
+      "id": "LJG-Cz",
+      "question": "hello",
+      "options": [
+        {
+          "text": "yes",
+          "votes": 0
+        },
+        {
+          "text": "no",
+          "votes": 1
+        },
+        {
+          "text": "hl",
+          "votes": 0
+        }
+      ],
+      "voters": [
+        "a246ad19-1678-4b76-9714-c6a4f12e4236"
+      ]
+    },
+    {
+      "id": "gABolP",
+      "question": "hyrdu",
+      "options": [
+        {
+          "text": "jl",
+          "votes": 1
+        },
+        {
+          "text": "nln",
+          "votes": 0
+        }
+      ],
+      "voters": [
+        "a246ad19-1678-4b76-9714-c6a4f12e4236"
+      ]
+    },
+    {
+      "id": "Ay87Aq",
+      "question": "hello",
+      "options": [
+        {
+          "text": "hi",
+          "votes": 1
+        },
+        {
+          "text": "jh",
+          "votes": 0
+        },
+        {
+          "text": "hh",
+          "votes": 0
+        }
+      ],
+      "voters": [
+        "a246ad19-1678-4b76-9714-c6a4f12e4236"
+      ]
+    },
+    {
+      "id": "ku3Tia",
+      "question": "bbikb",
+      "options": [
+        {
+          "text": "hhh",
+          "votes": 1
+        },
+        {
+          "text": "jj",
+          "votes": 0
+        },
+        {
+          "text": "hjh",
+          "votes": 0
+        }
+      ],
+      "voters": [
+        "a246ad19-1678-4b76-9714-c6a4f12e4236"
+      ]
+    }
+  ]
+}

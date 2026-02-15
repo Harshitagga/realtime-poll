@@ -1,0 +1,152 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BACKGROUND */
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#4facfe,#6a5acd);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* MAIN CARD */
+.container{
+    width:520px;
+    max-width:90%;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 25px 70px rgba(0,0,0,0.25);
+    animation: fadeIn 0.7s ease;
+}
+
+/* HEADINGS */
+h1, h2{
+    text-align:center;
+    margin-bottom:12px;
+    color:#222;
+}
+
+p{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* INPUT */
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:12px;
+    border:1px solid #ddd;
+    font-size:15px;
+    transition:0.25s;
+}
+
+input:focus{
+    border-color:#4facfe;
+    outline:none;
+    box-shadow:0 0 8px rgba(79,172,254,0.4);
+}
+
+/* DEFAULT BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#4facfe,#6a5acd);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* ⭐ VOTE BUTTON (Special) */
+.vote-btn{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    margin:14px 0;
+    font-size:17px;
+}
+
+.vote-btn:hover{
+    transform:scale(1.05);
+}
+
+/* OPTION CARD */
+.option{
+    margin-top:18px;
+    padding:14px;
+    border-radius:14px;
+    background:#f4f7ff;
+    animation:fadeIn 0.5s ease;
+}
+
+/* VOTE BAR */
+.bar{
+    height:14px;
+    background:#e2e6ff;
+    border-radius:30px;
+    margin-top:8px;
+    overflow:hidden;
+}
+
+/* ANIMATED FILL */
+.fill{
+    height:100%;
+    background:linear-gradient(90deg,#4facfe,#6a5acd);
+    width:0%;
+    transition: width 0.8s cubic-bezier(.65,.05,.36,1);
+}
+
+/* LINK STYLE */
+#link{
+    margin-top:20px;
+    text-align:center;
+    font-weight:600;
+    color:#4facfe;
+    word-wrap:break-word;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* 📱 MOBILE */
+@media(max-width:600px){
+
+    .container{
+        padding:25px;
+    }
+
+    h1,h2{
+        font-size:22px;
+    }
+
+    button{
+        font-size:15px;
+    }
+}

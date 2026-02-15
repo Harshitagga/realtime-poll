@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Poll System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>⚡ Real-Time Poll System</h1>
+    <p>Create live polls and watch votes update instantly.</p>
+
+    <!-- ⭐ FORM START -->
+    <form onsubmit="createPoll(event)">
+
+        <input 
+            id="question"
+            placeholder="Enter your question"
+            required
+        >
+
+        <div id="options">
+            <input placeholder="Option 1" required>
+            <input placeholder="Option 2" required>
+        </div>
+
+        <!-- TYPE BUTTON prevents refresh -->
+        <button type="button" onclick="addOption()">
+            Add Option
+        </button>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit">
+            Create Poll 🚀
+        </button>
+
+    </form>
+    <!-- ⭐ FORM END -->
+
+    <p id="link"></p>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

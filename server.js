@@ -9,20 +9,23 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+// Middleware
 app.use(express.json());
 app.use(express.static("public"));
 
+// Database setup
 const adapter = new JSONFile("db.json");
 const db = new Low(adapter, { polls: [] });
 
+// Initialize DB
 await db.read();
-
+db.data ||= { polls: [] };
 
 // ✅ CREATE POLL
 app.post("/create", async (req, res) => {
     const { question, options } = req.body;
 
-    if (!question || options.length < 2) {
+    if (!question || !options || options.length < 2) {
         return res.status(400).json({ error: "Invalid poll data" });
     }
 
@@ -42,7 +45,6 @@ app.post("/create", async (req, res) => {
     res.json({ link: `/poll.html?id=${poll.id}` });
 });
 
-
 // ✅ GET POLL
 app.get("/poll/:id", (req, res) => {
     const poll = db.data.polls.find(p => p.id === req.params.id);
@@ -53,7 +55,6 @@ app.get("/poll/:id", (req, res) => {
 
     res.json(poll);
 });
-
 
 // ✅ SOCKET CONNECTION
 io.on("connection", (socket) => {
@@ -67,19 +68,23 @@ io.on("connection", (socket) => {
         const poll = db.data.polls.find(p => p.id === pollId);
         if (!poll) return;
 
-        // ⭐ Anti-duplicate voting
+        // Prevent duplicate voting
         if (poll.voters.includes(voterId)) return;
 
-        poll.options[optionIndex].votes++;
-        poll.voters.push(voterId);
+        if (poll.options[optionIndex]) {
+            poll.options[optionIndex].votes++;
+            poll.voters.push(voterId);
 
-        await db.write();
+            await db.write();
 
-        io.to(pollId).emit("updateResults", poll.options);
+            io.to(pollId).emit("updateResults", poll.options);
+        }
     });
 });
 
+// ✅ IMPORTANT FOR RENDER (Dynamic Port)
+const PORT = process.env.PORT || 3000;
 
-server.listen(3000, () => {
-    console.log("🚀 Server running at http://localhost:3000");
+server.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
 });
